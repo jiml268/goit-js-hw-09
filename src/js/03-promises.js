@@ -20,17 +20,24 @@ const convertNum = +numOfPromises.value;
 for (let i =1; i<= convertNum; i++){
 createPromise(i, convertdalay)
 convertdalay += convertstepAmt
-
 }
 }
 
 function createPromise(position, delay) {
+  let p = new Promise((resolve, reject) => {
   const shouldResolve = Math.random() > 0.3;
   if (shouldResolve) {
-    Notiflix.Notify.success(`Fulfilled promise ${position} in ${delay}ms`);
+    resolve('Filfill')
     // Fulfill
   } else {
-    Notiflix.Notify.failure(`Rejected  promise ${position} in ${delay}ms`);
-
+    reject('Reject')
   }
-}
+})
+ p.then((message) => {
+  Notiflix.Notify.success(`Fulfilled promise ${position} in ${delay}ms`);
+  }).catch((message) => {
+    Notiflix.Notify.failure(`Rejected  promise ${position} in ${delay}ms`);
+  })
+
+ }
+
