@@ -25,13 +25,15 @@ convertdalay += convertstepAmt
 
 function createPromise(position, delay) {
   let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
   const shouldResolve = Math.random() > 0.3;
   if (shouldResolve) {
-    resolve('Filfill')
+    resolve()
     // Fulfill
   } else {
-    reject('Reject')
+    reject()
   }
+}, delay)
 })
  p.then((message) => {
   Notiflix.Notify.success(`Fulfilled promise ${position} in ${delay}ms`);
