@@ -13,6 +13,7 @@ const Displaysetup = document.querySelectorAll('.field');
 startButton.addEventListener('click', startCountDown);
 let dateTimePicked = null
 let ms = 0
+let timerId = null;
 startButton.disabled = true;
 SetupScreen()
 
